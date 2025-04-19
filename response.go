@@ -50,7 +50,7 @@ type SearchResultData struct {
 	Part                 string      `json:"part,omitempty"`
 	Year                 string      `json:"year,omitempty"`
 	EstimatedTime        string      `json:"est_time,omitempty"`
-	DeviantArtID         int         `json:"da_id,omitempty"`
+	DeviantArtID         string      `json:"da_id,omitempty"`
 	AuthorName           string      `json:"author_name,omitempty"`
 	AuthorURL            string      `json:"author_url,omitempty"`
 	BcyID                int         `json:"bcy_id,omitempty"`
@@ -118,7 +118,7 @@ func (result *SearchResult) IsIMDb() bool {
 
 // IsDeviantArt returns true if the result is from DeviantArt
 func (result *SearchResult) IsDeviantArt() bool {
-	return result.Data.DeviantArtID != 0
+	return result.Data.DeviantArtID != ""
 }
 
 // IsBcy returns true if the result is from Bcy
